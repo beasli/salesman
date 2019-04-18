@@ -1,0 +1,81 @@
+<ion-content padding>
+  <ion-grid>
+    <div *ngIf="client">
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Client ID</h1>
+          <span class="content">{{client.AccID}}</span>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Legal Name</h1>
+          <span class="content">Client Light Ltd.</span>
+        </ion-col>
+      </ion-row> -->
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Name</h1>
+          <span class="content">{{client.ArName}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Vat No.</h1>
+          <span class="content">{{client.VatNo}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Phone 1</h1>
+          <span class="phone-span content">{{client.PhoneNumber}}</span>
+          <span class="phone-icon content"><a href="tel:{{client.PhoneNumber}}"><ion-icon ios="ios-call" md="md-call"></ion-icon></a></span>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Phone 2</h1>
+          <span class="content">&nbsp;</span>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Fax</h1>
+          <span class="content">{{client.FaxNumber}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Email</h1>
+          <span class="content">{{client.Email}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Web</h1>
+          <span class="content">{{client.Website}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Sort</h1>
+          <span class="content" *ngIf="sort">{{sort.ArName}}</span> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="client-desc-row">
+        <ion-col size="12">
+          <h1 class="heading">Address</h1>
+          <span class="content">{{client.Address}}</span>
+        </ion-col>
+      </ion-row>
+
+
+    </div>
+  </ion-grid>
+</ion-content>

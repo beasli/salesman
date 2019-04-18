@@ -1,0 +1,76 @@
+.scroll-content{
+    padding-left: 0!important;
+    padding-right: 0px!important; 
+}
+ion-grid.grid{
+    padding:0px;
+}
+ .item-list {
+    background: #fff;
+    color: #404557;
+    position: relative;
+    border-bottom: 1px solid #00afc5;
+}
+.item-list ion-col {
+  //  padding-top: 20px;        
+}
+.item-list-heading {
+    font-weight: 500;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+.item-content{
+    font-weight:500;
+}
+.item-cart-icon{
+    font-size:23px;
+    float:right;
+}
+img{
+    max-width:40px;
+}
+.item-desc{
+    font-size:12px;
+    padding-left:10px!important;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 10px;
+    text-align: right;
+}
+
+.ion-padding, [padding] {
+     --padding-start: var(--ion-padding, 0px); 
+     --padding-end: var(--ion-padding, 0px); 
+    --padding-top: var(--ion-padding, 0px);
+    --padding-bottom: var(--ion-padding, 16px);
+}
+
+.header {
+    background: #31afc7;
+}
+
+
+.footer {
+    background: #7e7c7c;
+    color: #fff;
+}
+
+.funnel {
+    border-left: 1px solid;
+    padding-left: 15px;
+}
+
+.sc-ion-searchbar-md-h {
+    --clear-button-color: initial;
+    --cancel-button-color: var(--ion-color-step-900,#1a1a1a);
+    --color: var(--ion-color-step-850,#262626);
+    --icon-color: var(--ion-color-step-600,#666);
+    --background: var(--ion-background-color,#fff);
+    padding-left: 0px;
+    padding-right: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: inherit;
+}

@@ -1,0 +1,125 @@
+<ion-content>
+  <ion-toolbar color="primary">
+    <div class="alert-head sc-ion-alert-md">
+      <h2 id="alert-1-hdr" class="alert-title sc-ion-alert-md">Detail</h2>
+    </div>
+    <ion-buttons slot="end"  >
+      <ion-button (click)="close()" class="padding-top-16">
+        Cancel
+      </ion-button>
+      <ion-button (click)="accept()" class="padding-top-16">
+        Accept
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="small">
+    <ion-item>
+      <ion-label>Reference No.</ion-label>
+      {{value.ItemID}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      {{value.ArName}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Qty.</ion-label>
+      <ion-input type="number" #qtyField clearInput (ionChange)="changeQty()" [(ngModel)]="qty" [value]="qty"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description</ion-label>
+      {{value.Description}}
+    </ion-item>
+
+
+    <ion-item *ngIf="value.Amount">
+      <ion-label>Special Price</ion-label>
+      {{value.Amount}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sales Price</ion-label>
+      {{value.Price}}
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Warehouse</ion-label>
+      <ion-select [(ngModel)]="value.WarehouseID" okText="Okay" cancelText="Dismiss">
+          <ion-select-option *ngFor="let curr of Warehouse" [value]="curr.ID">{{curr.ArName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Unit Id</ion-label>
+        <ion-select [(ngModel)]="value.UnitID" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let curr of Units" [value]="curr.LKP_ID">{{curr.LKP_ID + ' - ' + curr.ArName}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+<!-- 
+    <ion-item>
+      <ion-label>Tax Summary</ion-label>
+      <ion-input [value]="value"></ion-input>
+    </ion-item> -->
+
+  </div>
+
+
+  <ion-grid class="x-small">
+    <ion-row>
+      <ion-col>
+        Temporary Stock
+      </ion-col>
+      <ion-col>
+        {{value.Stock}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Actual Stock
+      </ion-col>
+      <ion-col>
+          {{value.ActualStock}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Minimum Stock
+      </ion-col>
+      <ion-col>
+          {{value.MinimumStock}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Total
+      </ion-col>
+      <ion-col *ngIf="value.Amount">
+        {{value.Amount * qty}}
+      </ion-col>
+      <ion-col *ngIf="!value.Amount">
+        {{value.Price * qty}}
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col text-right>
+        <ion-button (click)="close()">
+          Cancel
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="accept()">
+          Accept
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+</ion-content>

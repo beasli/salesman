@@ -1,0 +1,66 @@
+<ion-content>
+    <ion-grid *ngIf="item">
+        <ion-row class="item-row">
+            <ion-col size="4" class="general-product">
+                <ion-img src="../../../assets/img/industrial-gloves.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="8">
+                <h6>{{item.ArName}}</h6>
+                <h4>{{item.Price}}</h4>
+            </ion-col>
+        </ion-row>
+        <ion-row class="reference">
+            <ion-col>
+                <h6>Reference</h6>
+            </ion-col>
+            <ion-col size="12" class="ref-content">{{item.ItemID}}</ion-col>
+        </ion-row>
+        <ion-row class="bar-code">
+            <ion-col size="12">
+                <h6>Barcode</h6>
+            </ion-col>
+            <ion-col size="12" class="bar-content">{{(item.Barcode)?item.Barcode:'N/A'}}</ion-col>
+        </ion-row>
+        <ion-row class="description">
+            <ion-col>
+                <h6>Description</h6>
+            </ion-col>
+            <ion-col size="12" class="desc-content">{{(item.Note)?item.Note:'N/A'}}</ion-col>
+        </ion-row>
+        <ion-row class="prod-catg">
+            <ion-col>
+                <h6>Product Category</h6>
+            </ion-col>
+            <ion-col size="12" class="prod-content">{{item.Sort}}</ion-col>
+        </ion-row>
+        <ion-row class="prod-catg">
+            <ion-col>
+                <h6>Catalog No.</h6>
+            </ion-col>
+            <ion-col size="12" class="prod-content">{{item.CatelogNumber}}</ion-col>
+        </ion-row>
+        <ion-row class="prod-catg">
+            <ion-col>
+                <h6>Part No</h6>
+            </ion-col>
+            <ion-col size="12" class="prod-content">{{item.PartNumber}}</ion-col>
+        </ion-row>
+        <ion-row class="prod-catg">
+            <ion-col>
+                <h6>Weight</h6>
+            </ion-col>
+            <ion-col size="12" class="prod-content">{{item.Weight}}</ion-col>
+        </ion-row>
+        <ion-row class="prod-catg">
+            <ion-col>
+                <h6>Have Expire Date</h6>
+            </ion-col>
+            <ion-col size="12" class="prod-content">{{item.HaveExpiryDate}}</ion-col>
+        </ion-row>
+        <ion-row class="status">
+            <ion-col>
+                    <ion-icon class="check-mark" *ngIf="!item.IsActive" name="checkmark-circle"></ion-icon>  <h6>Active</h6> 
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

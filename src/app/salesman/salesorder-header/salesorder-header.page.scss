@@ -1,0 +1,28 @@
+ion-input .text-input{
+    margin:5px 0 5px 0!important;
+}
+.item .label, ion-select.select, ion-datetime.datetime{
+    padding-bottom:0px!important;
+    margin-bottom:0px!important;
+    color:#0096a9;
+    font-size:13px;
+}
+ion-item.item{
+    padding-left:0px!important;
+}
+button.update-items {
+    height: 40px!important;
+    background: #00afc5;
+    margin-top: 20px;
+
+}
+button.update-items.activated{
+    background:#00afc5;
+}
+
+.ion-padding, [padding] {
+    --padding-start: var(--ion-padding, 0px); 
+    --padding-end: var(--ion-padding, 0px); 
+    --padding-top: var(--ion-padding, 8px); 
+    --padding-bottom: var(--ion-padding, 0px); 
+}

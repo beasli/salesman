@@ -1,0 +1,200 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create New Client</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="uploadClient()">
+        <!-- <ion-icon name="cloud-upload"></ion-icon> -->
+        <img style="width:32px" src="../../../assets/img/save.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Name (Required and unique)</ion-label>
+          <ion-input [(ngModel)]="client.AccArName"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Vat Number</ion-label>
+          <ion-input [(ngModel)]="client.VatNumber"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Phone</ion-label>
+          <ion-input [(ngModel)]="client.Tel"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Fax</ion-label>
+          <ion-input [(ngModel)]="client.Fax"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="client.Email"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">WebSite</ion-label>
+          <ion-input [(ngModel)]="client.WebSite"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Sort</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.SortID">
+              <ion-select-option *ngFor="let sort of sorts; let i = index" [value]="sort.SortID">{{sort.ArName}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Address</ion-label>
+          <ion-input [(ngModel)]="client.Address"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <!-- <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Acc. Id For User</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.AccIDForUser">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col> -->
+
+
+      <!-- <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Created By</ion-label>
+          <ion-input [(ngModel)]="client.CreatedBy"></ion-input>
+        </ion-item>
+      </ion-col> -->
+
+      <!-- <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Filter 1</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.Filter1">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Filter2</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.Filter2">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Filter3</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.Filter3">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Filter4</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.Filter4">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Filter5</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.Filter5">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col> -->
+
+      <!-- <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Printing Name</ion-label>
+          <ion-input [(ngModel)]="client.PrintingName"></ion-input>
+        </ion-item>
+      </ion-col> -->
+
+      <!-- <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label  color="primary">Vat Status</ion-label>
+            <ion-checkbox color="primary"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col> -->
+
+      <!-- <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="primary">City</ion-label>
+            <ion-select placeholder="Select One" [(ngModel)]="client.CityID">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col> -->
+
+      <!-- <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked" color="primary">Mobile</ion-label>
+          <ion-input [(ngModel)]="client.Mobile"></ion-input>
+        </ion-item>
+      </ion-col> -->
+
+
+
+
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+
+        <div class="list" *ngIf="salesOrder">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Sales Orders</span>
+                </ion-col>
+                <ion-col size="6" class="heading-one">No.of Orders</ion-col>
+                <ion-col size="6" text-right class="content-one">{{salesOrder.orders}}</ion-col>
+                <ion-col size="6" class="heading-one">Orders Amount</ion-col>
+                <ion-col size="6" text-right class="content-one">{{salesOrder.total| currency:'NIS '}}</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="list" *ngIf="orderUpload">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Order Upload</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">No.of Orders Upload</ion-col>
+                <ion-col size="5" text-right class="content-one">{{orderUpload.orders}}</ion-col>
+                <ion-col size="7" class="heading-one">Orders Amount</ion-col>
+                <ion-col size="5" text-right class="content-one">{{orderUpload.total| currency:'NIS '}}</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="list" *ngIf="invoices">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Invoicing</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">No. of Sales</ion-col>
+                <ion-col size="5" text-right class="content-one">{{invoices.orders}}</ion-col>
+                <ion-col size="7" class="heading-one">Sales Amount</ion-col>
+                <ion-col size="5" text-right class="content-one">{{invoices.total| currency:'NIS '}}</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="list"  *ngIf="Collections">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Collections</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">No. of Collections</ion-col>
+                <ion-col size="5" text-right class="content-one">{{Collections.orders}}</ion-col>
+                <ion-col size="7" class="heading-one">Collections Amount</ion-col>
+                <ion-col size="5" text-right class="content-one">{{Collections.total| currency:'NIS '}}</ion-col>
+            </ion-row>
+        </div>
+
+        <!-- <div class="list">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Lead</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">Orders</ion-col>
+                <ion-col size="5" text-right class="content-one">1 &nbsp;($652.36)</ion-col>
+                <ion-col size="7" class="heading-one">Delivery Notes</ion-col>
+                <ion-col size="5" text-right class="content-one">1 &nbsp;($652.36)</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="list">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">POS</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">Orders</ion-col>
+                <ion-col size="5" text-right class="content-one">1 &nbsp;($652.36)</ion-col>
+                <ion-col size="7" class="heading-one">Delivery Notes</ion-col>
+                <ion-col size="5" text-right class="content-one">1 &nbsp;($652.36)</ion-col>
+            </ion-row>
+        </div> -->
+
+        <div class="list"  *ngIf="Clients">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="list-heading">Clients</span>
+                </ion-col>
+                <ion-col size="7" class="heading-one">No. of Clients</ion-col>
+                <ion-col size="5" text-right class="content-one">{{Clients.orders}}</ion-col>
+                <ion-col size="7" class="heading-one">Clients Balance</ion-col>
+                <ion-col size="5" text-right class="content-one">NIS {{Clients.total| currency:' '}}</ion-col>
+            </ion-row>
+        </div>
+
+    </ion-grid>
+</ion-content>

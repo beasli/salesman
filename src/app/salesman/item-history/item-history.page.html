@@ -1,0 +1,126 @@
+<ion-content padding>
+    <ion-grid>
+
+        <div class="history" *ngFor="let history of item">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    {{history.Date | date: 'dd/MM/yyyy'}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">Invoice ID: {{history.InvoiceID}}</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>{{history.CurrencyName + ' ' + history.InvoiceTotal   }}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9" class="history-company-name">{{(history.Client)?history.Client:'N/A'}}</ion-col>
+                <ion-col size="3" class="closed-status" text-center>{{(history.Status)?history.Status:'Closed'}}</ion-col>
+            </ion-row>
+            <ion-row>
+                    <ion-col size="4" class="history-company-name">Qty. : {{(history.Quantity)?history.Quantity:'N/A'}}</ion-col>
+                    <ion-col size="4" class="history-company-name">Price : {{(history.Price)?history.Price:'N/A'}}</ion-col>
+                    
+                </ion-row>
+        </div>
+
+        <!-- <div class="history">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    12/11/2018
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">INV00985</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>$ 112.65</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9" class="history-company-name">Llyods Machinery Inc.</ion-col>
+                <ion-col size="3" class="closed-status" text-center>Closed</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="history">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    12/11/2018
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">INV00985</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>$ 112.65</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9" class="history-company-name">Llyods Machinery Inc.</ion-col>
+                <ion-col size="3" class="unpaid-status" text-center>Unpaid</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="history">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    12/11/2018
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">INV00985</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>$ 112.65</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">
+                    <span class="compnay-category">Oven repairs</span><br />
+                    <span class="history-company-name">Llyods Machinery Inc.</span>
+                </ion-col>
+                <ion-col size="3" class="pending-status" text-center>Pending</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="history">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    12/11/2018
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">INV00985</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>$ 112.65</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9" class="history-company-name">Llyods Machinery Inc.</ion-col>
+                <ion-col size="3" class="closed-status" text-center>closed</ion-col>
+            </ion-row>
+        </div>
+
+        <div class="history">
+            <ion-row class="history-date-row">
+                <ion-col size="12">
+                    12/11/2018
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" class="history-invoice-no">INV00985</ion-col>
+                <ion-col size="4" class="history-invoice-price" text-right>$ 112.65</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9" class="history-company-name">Llyods Machinery Inc.</ion-col>
+                <ion-col size="3" class="pending-status" text-center>Pending</ion-col>
+            </ion-row>
+        </div> -->
+    </ion-grid>
+
+
+</ion-content>
+<!-- <ion-footer>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="end">
+            <ion-select placeholder="0">
+                <ion-select-option>1</ion-select-option>
+                <ion-select-option>2</ion-select-option>
+            </ion-select>
+            <ion-select placeholder="UOM1">
+                <ion-select-option>UOM1</ion-select-option>
+                <ion-select-option>UOM2</ion-select-option>
+            </ion-select>
+            <ion-icon class="item-cart-icon" ios="ios-cart" md="md-cart"></ion-icon>
+            <div style="width:75px;"></div>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer> -->

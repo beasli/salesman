@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Create New Event</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="uploadEvent()">
+            <!-- <ion-icon name="cloud-upload"></ion-icon> -->
+            <img style="width:32px" src="../../../assets/img/save.svg" />
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">Subject</ion-label>
+                    <ion-input [(ngModel)]="event.Subject"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">Location</ion-label>
+                    <ion-input [(ngModel)]="event.LocationId"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">From</ion-label>
+                    <ion-datetime displayFormat="YYYY MMM DD HH:mm" [(ngModel)]="event.FromDate" placeholder="Date" min="2016" max="2050-12-31"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">To</ion-label>
+                    <ion-datetime [(ngModel)]="event.ToDate" display-format="YYYY MMM DD HH:mm" min="2016" max="2050-12-31" placeholder="Date"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-list>
+                    <ion-item>
+                        <ion-checkbox class="no-margin" [(ngModel)]="event.AllDay" [value]="true"></ion-checkbox>
+                        <ion-label class="no-margin" text-center color="primary">All Day</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+            <!-- <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" stacked>Event Type</ion-label>
+                    <ion-select [(ngModel)]="event.toppings" multiple="true">
+                        <ion-select-option selected>Select</ion-select-option>
+                        <ion-select-option>Select1</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" stacked>Calendar</ion-label>
+                    <ion-select [(ngModel)]="event.toppings" multiple="true">
+                        <ion-select-option selected>Personal</ion-select-option>
+                        <ion-select-option>Personal 1</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" stacked>Status</ion-label>
+                    <ion-select [(ngModel)]="event.toppings" multiple="true">
+                        <ion-select-option selected>Pending</ion-select-option>
+                        <ion-select-option>Pending 1</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" stacked>Client</ion-label>
+                    <ion-select [(ngModel)]="event.toppings" multiple="true">
+                        <ion-select-option selected>Select Client</ion-select-option>
+                        <ion-select-option>Select Client</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" stacked>Repeat Event</ion-label>
+                    <ion-select [(ngModel)]="event.toppings" multiple="true">
+                        <ion-select-option selected>Yes</ion-select-option>
+                        <ion-select-option>No</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12"><label class="heading-reminder">REMINDERS</label></ion-col>
+            <ion-col size="6">
+                <ion-row>
+                    <ion-col size="9" style="padding:0px;">
+                        <ion-item class="reminder-select">
+                            <ion-select [(ngModel)]="event.toppings" multiple="true">
+                                <ion-select-option selected>Notification</ion-select-option>
+                                <ion-select-option>Notification1</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" text-center style="padding-top:0px;">
+                        <ion-item>
+                            <ion-input class="notification-count" placeholder="1"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col size="9" style="padding:0px;">
+                        <ion-item class="reminder-select">
+                            <ion-select [(ngModel)]="event.toppings" multiple="true">
+                                <ion-select-option selected>Email</ion-select-option>
+                                <ion-select-option>Email1</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" text-center style="padding-top:0px;">
+                        <ion-item>
+                            <ion-input class="notification-count" placeholder="1"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="6">
+                <ion-row>
+                    <ion-col size="9" style="padding:0px;" class="notification-hours">
+                        <ion-item>
+                            <ion-item>
+                                <ion-datetime class="hours" displayFormat="HH:mm" [(ngModel)]="event.myDate" placeholder="Hours"></ion-datetime>
+                            </ion-item>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" text-center style="padding-top:0px;"><ion-icon class="notification-trash" ios="ios-trash" md="md-trash"></ion-icon></ion-col>
+
+                    <ion-col size="9" style="padding:0px;" class="notification-hours-bottom">
+                        <ion-item>
+                            <ion-item>
+                                <ion-datetime class="hours" displayFormat="HH:mm" [(ngModel)]="event.myDate" placeholder="Hours"></ion-datetime>
+                            </ion-item>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="3" text-center style="padding-top:0px;"><ion-icon class="notification-trash" ios="ios-trash" md="md-trash"></ion-icon></ion-col>
+                </ion-row>
+            </ion-col> -->
+        </ion-row>
+    </ion-grid>
+</ion-content>

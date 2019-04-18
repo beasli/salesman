@@ -1,0 +1,165 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>salesorder-header</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content >
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">Created By</ion-label>
+                    <ion-input readonly="true">{{header.CreatedBy}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label  position="stacked" color="primary" >Agent</ion-label>
+                    <ion-input readonly="true">{{Salesman.ArName}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Rate</ion-label>
+                    <ion-input readonly="true" >{{header.Rate}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Delivery Date</ion-label>
+                    <ion-input readonly="true" >
+                        <!-- {{header.DeliveryDate | date: 'dd/MM/yyyy'}} -->
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+            <!-- <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Email Sent Date</ion-label>
+                    <ion-input readonly="true" >{{header.EmailSentDate | date: 'dd/MM/yyyy'}}</ion-input>
+                </ion-item>
+            </ion-col> -->
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Billing Address</ion-label>
+                    <ion-input readonly="true" >{{header.BillingAddress}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Delivery Address</ion-label>
+                    <ion-input readonly="true" >{{header.DeliveryAddress}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Delivery Option</ion-label>
+                    <ion-input readonly="true" >{{header.DeliveryOption}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Client Name</ion-label>
+                    <ion-input readonly="true" >{{header.ClientName}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Comments</ion-label>
+                    <ion-input readonly="true" >{{header.Comments}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Private Comment</ion-label>
+                    <ion-input readonly="true" >{{header.PrivateComment}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Reference</ion-label>
+                    <ion-input readonly="true" >{{header.Reference}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Taxes</ion-label>
+                    <ion-input readonly="true" >{{header.Taxes}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Date</ion-label>
+                    <ion-input readonly="true" >{{header.Date | date: 'dd/MM/yyyy'}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Currency</ion-label>
+                    <ion-input readonly="true" >{{header.Currency}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Currency Rate</ion-label>
+                    <ion-input readonly="true" >
+                        <!-- {{header.CurrencyRate}} -->
+                        1
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Payment Option</ion-label>
+                    <ion-input readonly="true" >{{header.PaymentOption}}</ion-input>
+                </ion-item>
+            </ion-col>
+            <!-- <ion-col size="12">
+                <ion-item>
+                    <ion-label>Delivery Date</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label>Email Sent Date</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label>Billing Address</ion-label>
+                    <ion-select [(ngModel)]="billing-address">
+                        <ion-select-option value="Delivery Address12">Billing Address 1</ion-select-option>
+                        <ion-select-option value="Delivery Address1">Billing Address 2</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label>Delivery Address</ion-label>
+                    <ion-select [(ngModel)]="delivery-address">
+                        <ion-select-option value="Delivery Address12">Delivery Address 1</ion-select-option>
+                        <ion-select-option value="Delivery Address">Delivery Address 2</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label>Delivery Option</ion-label>
+                    <ion-select [(ngModel)]="delivery-option">
+                        <ion-select-option value="Delivery Option12">Delivery Option 1</ion-select-option>
+                        <ion-select-option value="Delivery Option">Delivery Option 2</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col> -->
+        </ion-row>
+
+        <!-- <ion-row>
+            <ion-col size="3"></ion-col>
+            <ion-col size="6"><button ion-button full class="update-items">Update Items</button></ion-col>
+            <ion-col size="3"></ion-col>
+        </ion-row> -->
+
+    </ion-grid>
+</ion-content>

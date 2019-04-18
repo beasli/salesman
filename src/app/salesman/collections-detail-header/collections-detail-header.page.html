@@ -1,0 +1,54 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Client</ion-label>
+                <ion-input [(ngModel)]="header.ClientName" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked" color="primary">Entry By</ion-label>
+                <ion-input [(ngModel)]="header.EntryBy" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Amount</ion-label>
+                <ion-input [(ngModel)]="header.RV_Amount" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Equal Amount</ion-label>
+                <ion-input [(ngModel)]="header.RV_Equal_Amount" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Rate</ion-label>
+                <ion-input [(ngModel)]="header.TheRate" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Note</ion-label>
+                <ion-input [(ngModel)]="header.Note" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">IntervalID</ion-label>
+                <ion-input [(ngModel)]="header.IntervalID" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label color="primary" position="stacked">Currency</ion-label>
+                <ion-input [(ngModel)]="header.CurrencyName" readonly></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

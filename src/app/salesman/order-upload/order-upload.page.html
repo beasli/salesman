@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title *ngIf="!search">Upload Order List</ion-title>
+        <ion-searchbar *ngIf="search"
+        (ionChange)="searchItem($event)">
+      </ion-searchbar> 
+      <ion-buttons slot="end" (click)="toggleSearchBar()" class="padding-8">
+          <ion-icon *ngIf="!search" name="search"></ion-icon>
+          <ion-icon *ngIf="search" name="close"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+
+        <div class="history" *ngFor="let history of items" (click)="openDetail(history)">
+          <ion-row class="history-date-row">
+            <ion-col size="12">
+              {{history.Date | date: 'dd/MM/yyyy'}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8" class="history-invoice-no">Voucher ID : {{ history.VoucherID}}</ion-col>
+            <ion-col size="4" class="history-invoice-price" text-right>{{Currency(history.Header) + ' ' + history.Amount }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8" class="history-company-name">{{(history.ArAccount)?history.ArAccount:'N/A'}}</ion-col>
+            <ion-col size="4" class="closed-status" text-center>{{(history.EnglishStatus)?history.EnglishStatus:'-'}}</ion-col>
+          </ion-row>
+        </div>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+      </ion-grid>
+    
+    
+    </ion-content>
+    <ion-footer>
+        <ion-grid *ngIf="items">
+            <ion-row >
+                <ion-col size="3" >Showing</ion-col>
+                <ion-col size="3">
+                    <span >{{items.length}} of {{items.length}}</span>
+                </ion-col>
+                <ion-col size="4">
+                    <span >Orders</span>
+                </ion-col>
+                <ion-col size="2" class="funnel">
+                    <ion-icon name="funnel"></ion-icon>
+                </ion-col>
+            </ion-row> 
+        </ion-grid>
+    </ion-footer>

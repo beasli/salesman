@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-row class="items-heading">
+      <ion-col size="4" text-center>Name</ion-col>
+      <ion-col size="2" text-right>Disc.</ion-col>
+      <ion-col size="2" text-right>Price</ion-col>
+      <ion-col size="2" text-right>Qty.</ion-col>
+      <ion-col size="2" text-right>Amt.</ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content padding>
+<div class="sales-item">
+
+  <ion-row class="items-content" *ngFor="let item of items">
+    <ion-col size="1">
+      <span class="icon-merge">
+        <ion-icon ios="md-more" md="md-more"></ion-icon>
+      </span>
+    </ion-col>
+    <ion-col size="4">{{item.item.ArName}}</ion-col>
+    <ion-col size="2">0.00%</ion-col>
+    <ion-col size="2"  *ngIf="!item.item.Amount">{{item.item.Price}}</ion-col>
+    <ion-col size="2"  *ngIf="item.item.Amount">{{item.item.Amount}}</ion-col>
+    <ion-col size="1">{{item.Qty}}</ion-col>
+    <ion-col size="2" text-center *ngIf="!item.item.Amount">{{ item.item.Price*item.Qty | number:'0.0-2'}}</ion-col>
+    <ion-col size="2" text-center *ngIf="item.item.Amount">{{ item.item.Amount*item.Qty | number:'0.0-2'}}</ion-col>
+  </ion-row>
+
+
+</div>
+
+</ion-content>
+<ion-footer>
+
+<div class="bottom-create">
+  <ion-row class="all-total">
+    <ion-col size="2">&nbsp;</ion-col>
+    <ion-col size="5" (click)="addItem()">
+      Add Item
+    </ion-col>
+    <ion-col size="5" text-center>Total: <span class="total">{{totalAmaount() | currency: Client.CurrencyName + ' '}}</span></ion-col>
+  </ion-row>
+
+  <!-- <ion-row class="summary">
+    <ion-col size="4" text-center><span >Summary</span></ion-col>
+    <ion-col size="4" text-center class="border"><span class="discount">Discount</span></ion-col>
+    <ion-col size="4" text-center><span class="income-tax">Income Tax</span></ion-col>
+  </ion-row> -->
+
+  <!-- <ion-row class="add-section">
+    <ion-col size="6" text-center class="add-items">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon> <span>Add items</span></ion-col>
+    <ion-col size="6" text-center class="add-section">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon> <span>Add Section</span></ion-col>
+  </ion-row> -->
+</div>
+</ion-footer>

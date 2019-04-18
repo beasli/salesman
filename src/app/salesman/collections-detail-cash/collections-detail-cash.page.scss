@@ -1,0 +1,89 @@
+
+
+.history-invoice-no, history-date-row ion-col {
+    font-weight: 500;
+}
+
+.history {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.history-date-row {
+    border-bottom: 1px solid #00afc5;
+    line-height: 0;
+    padding: 10px 0 5px 0;
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: #00afc5;
+    font-weight: bold;
+}
+
+.history-company-name {
+    color: #808080;
+    padding-top: 0;
+    font-size: 12px;
+}
+.history-invoice-price{
+    font-size: 12px;
+}
+.closed-status, .unpaid-status, .pending-status {
+    color: #fff;
+    font-size: 10px;
+    height: 21px;
+    line-height: 10px;
+}
+
+.closed-status {
+    background: #00b100;
+}
+
+.pending-status {
+    background: #a90000;
+}
+
+.unpaid-status {
+    background: #e6a207;
+}
+
+.select {
+    max-width: 100%;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+.history-bottom-row {
+    position: absolute;
+    bottom: 0px;
+    background: #00afc5;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.history-bottom-row , .item-cart-icon{
+    font-size:27px;
+    color:#fff;
+}
+.item{
+    padding-left:0px;
+}
+.history-bottom-row{
+    min-height:1.5em;
+}
+.select-text{
+    font-size:14px;
+}
+.ion-padding, [padding] {
+    --padding-start: var(--ion-padding, 0px);
+    --padding-end: var(--ion-padding, 0px);
+    --padding-top: var(--ion-padding, 0px);
+    --padding-bottom: var(--ion-padding, 0px);
+    padding-left: var(--ion-padding, 0px);
+    padding-right: var(--ion-padding, 0px);
+    padding-top: var(--ion-padding, 0px);
+    padding-bottom: var(--ion-padding, 0px);
+}

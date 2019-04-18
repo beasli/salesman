@@ -1,0 +1,70 @@
+<ion-header>
+        <ion-grid class="heading">
+            <ion-row>
+              <ion-col size="2"  class="balance-heading">
+                <h6 style="margin:0px;">#</h6>
+              </ion-col>
+              <ion-col size="3"  class="balance-heading">
+                <h6 style="margin:0px;">Date</h6>
+              </ion-col>
+              <ion-col size="4"  class="balance-heading">
+                <h6 style="margin:0px;">Due-Date</h6>
+              </ion-col>
+              <ion-col size="3"  class="balance-heading">
+                <h6 style="margin:0px;">Amount</h6>
+              </ion-col>
+            </ion-row>
+            </ion-grid>
+      </ion-header>
+<ion-content >
+        <ion-grid>
+                <ion-row  class="client-row" *ngFor="let client of clients" >
+                  <ion-col size="2"  class="balance">{{client.VoucherID }}</ion-col>
+                  <ion-col  size="3" >
+                    <div class="company-name">
+                      <span class="company-heading">{{client.Date | date:'dd/MM/yyyy'}}</span>
+                    </div>
+                  </ion-col>
+                  <ion-col  size="4" >
+                        <div class="company-name">
+                          <span class="company-heading">{{client.DueDate | date:'dd/MM/yyyy'}}</span>
+                        </div>
+                      </ion-col>
+                  <ion-col size="3" text-right class="balance">{{client.Balance }}</ion-col>
+                </ion-row>
+              </ion-grid>
+  <!-- <ion-grid>
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+    <ion-row class="heading">
+        <ion-col size="3">Invoice No.</ion-col>
+        <ion-col size="2">Date</ion-col>
+        <ion-col size="3">Due-Date</ion-col>
+        <ion-col size="2">Amount</ion-col>
+        <ion-col size="2">
+            <ion-list>
+                <ion-item>
+                    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row> -->
+
+    <!-- <ion-row class="content">
+        <ion-col size="3">Invoice No.</ion-col>
+        <ion-col size="2">Date</ion-col>
+        <ion-col size="3">Due-Date</ion-col>
+        <ion-col size="2">Amount</ion-col>
+        <ion-col size="2">
+            <ion-list>
+                <ion-item>
+                    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row> 
+</ion-grid>-->
+</ion-content>

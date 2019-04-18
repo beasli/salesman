@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-searchbar  
+      (search)="searchItem($event)" 
+      (ionClear)="ngOnInit()">
+      </ion-searchbar>
+      <!-- <ion-buttons slot="end" (click)="toggleSearchBar()" class="padding-8">
+        <ion-button>
+            <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+
+  </ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row class="client-row" *ngFor="let client of banks">
+          <ion-col size="10" >
+            <div class="company-name">
+              <div class="company-heading">{{client.Arabic_Bank}}</div>
+              <div class="company-phone">{{client.Branch_Code}}</div>
+            </div>
+          </ion-col>
+          <ion-col size="2" text-center class="balance">
+            <ion-button (click)="selectBank(client)">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+</ion-content>

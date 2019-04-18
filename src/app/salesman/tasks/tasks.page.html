@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Tasks</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="10" class="add-task">
+                <ion-item>
+                    <ion-input placeholder="Add Task" [(ngModel)]="task.Subject"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="2" class="checkbox-icon" text-center>
+                <ion-button size="small" class="btn" (click)="uploadTask()">
+                    <ion-icon name="checkmark" class="checkbox-icon"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="checkbox-box" *ngFor="let tempTask of tempTasks; let i = index">
+            <div *ngIf="canView(tempTask)">
+                <ion-col size="10" class="add-task">
+                    <ion-item>
+                        <ion-checkbox [(ngModel)]="tempTask.IsCompleted" (click)="completeTempTask(tempTask, i)"></ion-checkbox>&nbsp;
+                        <ion-label class="font-size-12">{{tempTask.Subject}}</ion-label>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col size="2" class="add-task-icon margin-top-10" text-center>
+                    <ion-button fill="clear" (click)="presentAlertCheckbox(tempTasks, i, 'temp')">
+                        <ion-icon name="share-alt"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </div>
+        </ion-row>
+        <section *ngFor="let tempTask of tasks; let i = index;">
+                <ion-row class="checkbox-box" *ngIf="canView(tempTask)">
+           
+                        <ion-col size="10" class="add-task">
+                            <ion-item>
+                                <ion-checkbox [(ngModel)]="tempTask.IsCompleted" (click)="completeSavedTask(tempTask, i)"></ion-checkbox>&nbsp;
+                                <ion-label class="font-size-12">{{tempTask.Subject}}</ion-label>
+                            </ion-item>
+                        </ion-col>
+        
+                        <ion-col size="2" class="add-task-icon margin-top-10" text-center>
+                            <ion-button fill="clear" (click)="presentAlertCheckbox(tasks, i, 'saved')">
+                                <ion-icon name="share-alt"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                   
+                </ion-row>
+        </section>
+        <ion-row class="recently-completed">
+            <ion-col size="8" class="recently-text" text-uppercase>recently completed</ion-col>
+            <!-- <ion-col size="4" class="show-btn">
+                <ion-button size="small" text-uppercase>
+                    Show
+                </ion-button>
+            </ion-col> -->
+        </ion-row>
+
+        <ion-row class="checkbox-box" *ngFor="let tempTask of completedTasks; let i = index;">
+            <ion-col size="12" class="add-task" *ngIf="canView(tempTask)">
+                <ion-item>
+                        <ion-icon name="checkbox"></ion-icon>&nbsp;
+                    <ion-label class="font-size-12">{{tempTask.Subject}}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content  style="--background: url('../../../assets/img/login-bg.png') no-repeat 100% 100%;">
+    <ion-grid class="content">
+        <ion-row>
+            <ion-col col-12 text-center><img src="../assets/img/logo.png" /></ion-col>
+        </ion-row>
+        <form [formGroup]="validations_form" (submit)="onSubmit(validations_form.value)">
+            <ion-row class="user-row">
+                <ion-col col-12>
+                    <ion-item style="--background: transparent;">
+                        <ion-label position="floating" color="primary" floating>Username</ion-label>
+                        <ion-input formControlName="UserName"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.UserName">
+                        <div class="error-message" *ngIf="validations_form.get('UserName').hasError(validation.type) && (validations_form.get('UserName').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ion-row>
+            <ion-row class="pass-row">
+                <ion-col col-12>
+                    <ion-item style="--background: transparent;">
+                        <ion-label position="floating" color="primary" floating>Password</ion-label>
+                        <ion-input formControlName="Password"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.Password">
+                        <div class="error-message" *ngIf="validations_form.get('Password').hasError(validation.type) && (validations_form.get('Password').touched)">
+                            {{ validation.message }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 text-center>
+                    <ion-button type="submit" expand="block" shape="round" class="login-btn" [disabled]="!validations_form.valid">Login</ion-button>
+                </ion-col>
+            </ion-row>
+        </form>
+        <ion-row>
+            <ion-col col-12 text-center class="forgot">
+                Forgot Password?
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-row class="items-heading">
+        <ion-col size="1"></ion-col>
+        <ion-col size="3">Name</ion-col>
+        <ion-col size="2">Disc.</ion-col>
+        <ion-col size="2">Price</ion-col>
+        <ion-col size="2">Qty.</ion-col>
+        <ion-col size="2">Amount</ion-col>
+      </ion-row>
+</ion-header>
+
+<ion-content padding>
+  <div class="sales-item">
+
+    <ion-row class="items-content" *ngFor="let item of items">
+      <ion-col size="1">
+        <span class="icon-merge">
+          <ion-icon ios="md-more" md="md-more"></ion-icon>
+        </span>
+      </ion-col>
+      <ion-col size="3">{{item.ArName}}</ion-col>
+      <ion-col size="2">0.00%</ion-col>
+      <ion-col size="2">{{item.Price}}</ion-col>
+      <ion-col size="2">{{item.Quantity}}</ion-col>
+      <ion-col size="2">{{item.Amount | number:'0.0-2'}}</ion-col>
+    </ion-row>
+
+
+  </div>
+
+</ion-content>
+<ion-footer>
+
+  <div class="bottom-create">
+    <ion-row class="all-total">
+      <ion-col size="2">&nbsp;</ion-col>
+      <ion-col size="5" text-right>
+        <!-- Subtotal: <span class="subtotal"><b>$</b> 300.50</span> -->
+      </ion-col>
+      <ion-col size="5" text-center>Total: <span class="total">{{totalAmaount(items) | currency: header.Currency + ' '}}</span></ion-col>
+    </ion-row>
+
+    <!-- <ion-row class="summary">
+      <ion-col size="4" text-center><span >Summary</span></ion-col>
+      <ion-col size="4" text-center class="border"><span class="discount">Discount</span></ion-col>
+      <ion-col size="4" text-center><span class="income-tax">Income Tax</span></ion-col>
+    </ion-row> -->
+
+    <!-- <ion-row class="add-section">
+      <ion-col size="6" text-center class="add-items">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon> <span>Add items</span></ion-col>
+      <ion-col size="6" text-center class="add-section">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon> <span>Add Section</span></ion-col>
+    </ion-row> -->
+  </div>
+</ion-footer>

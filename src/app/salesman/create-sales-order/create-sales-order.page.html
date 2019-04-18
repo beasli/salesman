@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Sales Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="uploadSalesOrder()">
+          <!-- <ion-icon name="cloud-upload"></ion-icon> -->
+          <img style="width:32px" src="../../../assets/img/save.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-tabs>
+    <ion-tab-bar slot="top" color="primary">
+
+      <ion-tab-button tab="salesorder-items-create">
+        <ion-label>Items</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="salesorder-header-create">
+        <ion-label>Header</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="salesorder-attachments-create">
+        <ion-label>Attachments</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

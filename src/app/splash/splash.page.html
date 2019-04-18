@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title>Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../../assets/img/login-bg.png') no-repeat 100% 100%;">
+  <ion-grid class="content">
+    <ion-row class="margin-top35">
+        <ion-col size="12" text-center><img src="../assets/img/logo.png" /></ion-col>
+    </ion-row>
+    <section *ngIf="url === 'false'">
+        <ion-row class="wlcm-msg margin-top35">
+          <ion-col size="2"></ion-col>
+            <ion-col size="8" text-center>
+              Hi, Please scan QR code to configure your company.
+            </ion-col>
+            <ion-col size="2"></ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12" text-center>
+                  <ion-button (click)="openFiles()">
+                      Scan QR 
+                  </ion-button>
+              </ion-col>
+          </ion-row>
+    </section>
+
+    <section *ngIf="url === 'true'">
+        <ion-row class="wlcm-msg margin-top35">
+            <ion-col size="1"></ion-col>
+            <ion-col size="10" text-center>
+                Your Company Details are as follow:
+            </ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+          <ion-row class="user-row">
+              <ion-col size="4" >
+                  <ion-item style="--background: transparent;">
+                      <ion-label text-center color="primary" >ID</ion-label>
+                  </ion-item>
+              </ion-col>
+              <ion-col size="8">
+                  <ion-item style="--background: transparent;">
+                      <ion-label color="primary">{{details.ID}}</ion-label>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row class="user-row">
+              <ion-col size="4" >
+                  <ion-item style="--background: transparent;">
+                      <ion-label text-center color="primary" >Name</ion-label>
+                  </ion-item>
+              </ion-col>
+              <ion-col size="8">
+                  <ion-item style="--background: transparent;">
+                      <ion-label color="primary">{{details.Name}}</ion-label>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12" text-center>
+                  <ion-button (click)="initDB()">
+                      Let's Start 
+                  </ion-button>
+              </ion-col>
+          </ion-row>
+    </section>
+    
+    
+    </ion-grid>
+
+
+
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-content padding>
+  <div class="history" *ngFor="let history of header.Cash; let i = index">
+    <!-- <ion-row text-center>
+      <ion-col>
+        <ion-button (click)="deleteCash(header, i)">
+          Delete
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="updateModal('cash', history, i)">
+          Update
+        </ion-button>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size="12" class="history-invoice-no">AccountName : الصندوق النقدي</ion-col>
+      <!-- <ion-col size="4" class="history-invoice-price" text-right>{{history.RV_Amount | currency: 'AED '}}</ion-col> -->
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="history-company-name">EqualAmount : {{(history.Equal_Debit)?history.Equal_Debit:'N/A'}}</ion-col>
+      <ion-col size="6" class="history-company-name">Amount : {{(history.Debit)?history.Debit:'N/A'}}</ion-col>
+      <!-- <ion-col size="3" class="closed-status" text-center>{{(history.Amount)?history.Amount:'Closed'}}</ion-col> -->
+    </ion-row>
+    <ion-row class="history-date-row">
+      <!-- <ion-col size="12">
+              {{history.RV_Date | date: 'dd/MM/yyyy'}}
+            </ion-col> -->
+    </ion-row>
+  </div>
+</ion-content>

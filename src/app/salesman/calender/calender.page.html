@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Calender</ion-title>
+    <ion-buttons slot="end">
+     <ion-button [disabled]="isToday" (click)="today()">Today</ion-button>
+     <ion-button  (click)="changeMode('month')">M</ion-button>
+     <ion-button  (click)="changeMode('week')">W</ion-button>
+     <ion-button  (click)="changeMode('day')">D</ion-button>
+     <ion-button  (click)="loadEvents()"> <ion-icon name="refresh"></ion-icon> </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      {{viewTitle}}
+    </ion-col>
+    <ion-col >
+        <ion-item>
+            <ion-label stacked>Date</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="selectedDate" (ionChange)="nextMonth()" placeholder="{{placeholder}}"></ion-datetime>
+          </ion-item>
+    </ion-col>
+  </ion-row>
+  <calendar [eventSource]="eventSource"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onCurrentDateChanged)="onCurrentDateChanged($event)"
+  
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)"
+  step="30">
+  
+</calendar>
+<!--  (onRangeChanged)="reloadSource(startTime, endTime)" -->
+</ion-content>

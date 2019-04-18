@@ -1,0 +1,44 @@
+.catalog-list {
+    height: 30px;
+    padding: 15px 0px 25px 0px;
+    background: #fff;
+    color: #404557;
+    margin-bottom: 12px;
+    position: relative;
+    border-bottom: 1px solid #00afc5;
+    font-size: 14px;
+}
+.catalog-list ion-col {
+    padding-top: 0;        
+}
+.catalog-list-heading {
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+.catalog-content{
+    font-weight:500;
+}
+.cart-icon{
+    font-size:23px;
+    float:right;
+}
+
+.heading {
+    font-size: 12px;
+    font-weight: bold;
+    color: #31afc7;
+    background: #fff;
+    border-bottom: 2px solid #31afc7;
+    
+}
+
+.footer {
+    background: #7e7c7c;
+    color: #fff;
+}
+
+.funnel {
+    border-left: 1px solid;
+    padding-left: 15px;
+}

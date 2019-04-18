@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start" >
+          <ion-back-button></ion-back-button> 
+          <!-- <ion-icon  name="close"></ion-icon> -->
+      </ion-buttons>
+    <ion-title *ngIf="!search">Add Items</ion-title>
+    <ion-searchbar *ngIf="search"
+    (search)="searchItem($event)"
+    (ionClear)="ngOnInit()"> 
+  </ion-searchbar> 
+  <ion-buttons slot="end" (click)="toggleSearchBar()" class="padding-8">
+      <ion-icon *ngIf="!search" name="search"></ion-icon>
+      <ion-icon *ngIf="search" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-grid class="head-grid">
+    <ion-row class="showing-row">
+        <ion-col size="10">
+            <ion-input #input [(ngModel)]="this.SerialNo" (ngModelChange)="valuechange($event)"
+                        placeholder="Click here for scanner"></ion-input>
+        </ion-col>
+        <ion-col size="2">
+            <ion-button size="small" (click)="Scan()">
+                <ion-icon name="camera"  ></ion-icon>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content >
+  <ion-grid *ngIf="items">
+    <ion-row class="catalog-products" *ngFor="let item of items">
+      <ion-col size="2" class="prod-img" (click)="presentModal(item)">
+        <ion-img src="../../../assets/img/industrial-gloves.jpg"></ion-img>
+      </ion-col>
+      <ion-col size="6" class="prod-desc" (click)="presentModal(item)">
+          {{item.ArName}}<br />
+        <div class="prod-id">{{item.ItemID}}</div>
+        <div class="prod-id"> {{item.Price | currency:'NIS '}}</div>
+        <div class="prod-id" *ngIf="item.Amount">  Spl. Price: {{item.Amount | currency:'NIS '}}</div>
+       
+      </ion-col>
+      <!-- <ion-col size="2" class="prod-price" >
+        {{item.Price | currency:'NIS '}}
+      </ion-col> -->
+      <ion-col size="4" class="prod-add-cart" text-center >
+        <span class="count">{{itemCountInCart(item.ItemID)}} </span>
+        <ion-button size="small" shape="round"  *ngIf="isInTheCart(item.ItemID)" (click)="removeFromCart(item)">
+          <ion-icon name="trash"></ion-icon>
+         </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-infinite-scroll *ngIf="!searchResult" threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+      <ion-infinite-scroll *ngIf="searchResult" threshold="100px" (ionInfinite)="loadSearchData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-row class="showing-row" *ngIf="items">
+        <ion-col size="11" class="showing-text">Showing {{items.length}} Items</ion-col>
+        <ion-col size="1" class="showing-icon">
+          <ion-icon ios="ios-list" md="md-list"></ion-icon>
+        </ion-col>
+      </ion-row>
+    <ion-row class="total-row">
+        <ion-col size="5">
+          <ion-icon name="cart" class="cart-icon" (click)="goToSales()"></ion-icon>
+        </ion-col>
+        <ion-col size="7" text-right>
+          Total &nbsp;<span class="total">{{cartTotal}}</span>
+        </ion-col>
+      </ion-row>
+</ion-footer>

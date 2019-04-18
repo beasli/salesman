@@ -1,0 +1,215 @@
+<ion-content>
+  <ion-toolbar color="primary">
+    <div class="alert-head sc-ion-alert-md">
+      <h2 id="alert-1-hdr" class="alert-title sc-ion-alert-md">Detail</h2>
+    </div>
+  </ion-toolbar>
+
+  <div *ngIf="value === 'check' && data === 0">
+    <ion-item>
+      <ion-label>Account Name</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Check.AccID" ></ion-input> -->
+      <ion-select [(ngModel)]="Check.AccName" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of CheckAcc" [value]="curr.AccID">{{curr.AccArName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Currency</ion-label>
+      <ion-select [(ngModel)]="Check.CurrencyID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of Currency" [value]="curr.Id">{{curr.EnName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Equal Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="Check.Equal_Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="Check.Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check No.</ion-label>
+      <ion-input clearInput [(ngModel)]="Check.CheckNo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check Acc.</ion-label>
+      <ion-input clearInput [(ngModel)]="Check.CheckAccout"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check Date</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Check.CheckDate" ></ion-input> -->
+      <ion-datetime [(ngModel)]="Check.ChequeDate" display-format="YYYY-MM-DD" min="2016" max="2050-12-31"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-row class="width95">
+        <ion-col size="4">
+          <ion-label>Bank Name</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label *ngIf="bank">{{bank.Arabic_Bank}}</ion-label>
+          <ion-label *ngIf="!bank">Select Bank</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button (click)="openBankModal()">
+            <ion-icon name="arrow-dropdown-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-grid class="x-small">
+      <ion-row>
+        <ion-col text-right>
+          <ion-button (click)="close()">
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="accept()">
+            Accept
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="value === 'check' && data !== 0">
+    <ion-item>
+      <ion-label>Account Name</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Check.AccID" ></ion-input> -->
+      <ion-select [(ngModel)]="data.AccName" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of CheckAcc" [value]="curr.AccIDForUser">{{curr.AccArName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Currency</ion-label>
+      <ion-select [(ngModel)]="data.CurrencyID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of Currency" [value]="curr.Id">{{curr.EnName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Equal Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="data.Equal_Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="data.Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check No.</ion-label>
+      <ion-input clearInput [(ngModel)]="data.CheckNo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check Acc.</ion-label>
+      <ion-input clearInput [(ngModel)]="data.CheckAccout"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Check Date</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Check.CheckDate" ></ion-input> -->
+      <ion-datetime [(ngModel)]="data.ChequeDate" display-format="YYYY-MM-DD" min="2016" max="2050-12-31"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Bank Name</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Check.BankName" ></ion-input> -->
+      <!-- <ion-select [(ngModel)]="data.BranchCode" okText="Okay" cancelText="Dismiss">
+          <ion-select-option *ngFor="let bank of banks" [value]="bank.Branch_Code">{{bank.Branch_Code + '-' + bank.Arabic_Bank}}</ion-select-option>
+      </ion-select> -->
+
+      <ionic-selectable [(ngModel)]="port" [items]="banks" itemValueField="BranchCode" itemTextField="Arabic_Bank" [canSearch]="true"
+        (onChange)="portChange($event)">
+      </ionic-selectable>
+
+    </ion-item>
+    <ion-grid class="x-small">
+      <ion-row>
+        <ion-col text-right>
+          <ion-button (click)="close()">
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="update()">
+            Accept
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="value === 'cash' && data === 0">
+    <ion-item>
+      <ion-label>Account Name</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Cash.AccountName"></ion-input> -->
+      <ion-select [(ngModel)]="Cash.AccID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of CashAcc" [value]="curr.AccID">{{curr.AccArName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Currency</ion-label>
+      <ion-select [(ngModel)]="Cash.CurrencyID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of Currency" [value]="curr.Id">{{curr.EnName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Equal Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="Cash.Equal_Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="Cash.Debit"></ion-input>
+    </ion-item>
+    <ion-grid class="x-small">
+      <ion-row>
+        <ion-col text-right>
+          <ion-button (click)="close()">
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="accept()">
+            Accept
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="value === 'cash' && data !== 0">
+    <ion-item>
+      <ion-label>Account Name data</ion-label>
+      <!-- <ion-input clearInput  [(ngModel)]="Cash.AccountName"></ion-input> -->
+      <ion-select [(ngModel)]="data.AccID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of CashAcc" [value]="curr.AccIDForUser">{{curr.AccArName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Currency</ion-label>
+      <ion-select [(ngModel)]="data.CurrencyID" okText="Okay" cancelText="Dismiss">
+        <ion-select-option *ngFor="let curr of Currency" [value]="curr.Id">{{curr.EnName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Equal Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="data.Equal_Debit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input clearInput [(ngModel)]="data.Debit"></ion-input>
+    </ion-item>
+    <ion-grid class="x-small">
+      <ion-row>
+        <ion-col text-right>
+          <ion-button (click)="close()">
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="update()">
+            Accept
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-content>

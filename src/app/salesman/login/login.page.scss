@@ -1,0 +1,50 @@
+.error-message
+    {
+        font-size: 10px;
+        margin-left: 20px;
+        color: red;
+    }
+
+    .header{
+        display:block;
+        background: #8ad2de;
+    color: #fff;
+    }
+    .ion-grid{
+        min-height:500px;
+        margin-top: 50px;
+    }
+    .content{
+        background:url("../../../assets/img/login-bg.png");
+        background-color:#fff;
+    }
+    ion-item.item{
+        background:none;
+        padding-left:0px;
+    }
+    ion-label.label{
+        color:#00afc5!important;
+        font-weight:300;
+    }
+    input.text-input{
+        margin-bottom:0px!important;
+    }
+    .scroll-content{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .user-row{
+        margin-top:10px;
+    }
+    .login-btna {
+        background: #00afc5;
+        margin-top: 25px;
+        width: 280px;
+        display:inline;
+    }
+    .forgot{
+        color: #00afc5;
+    }
+    
+

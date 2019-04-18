@@ -1,0 +1,251 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Initializing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col size="10" class="pad0">
+      <span *ngIf="lookupDwnImg">Downloading Inital Data</span>
+      <span *ngIf="loadProgressForLookup < 99.999 && !lookupDwnImg">Installing Inital Data</span>
+      <span *ngIf="loadProgressForLookup > 99.9">Inital Data Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="lookupDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForLookup > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForLookup < 99.999 && !lookupDwnImg" [progress]="loadProgressForLookup | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForLookup > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="companyDwnImg">Downloading Company Data</span>
+      <span *ngIf="loadProgressForCompany < 99.999 && !companyDwnImg">Installing Company</span>
+      <span *ngIf="loadProgressForCompany > 99.9">Company Data Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="companyDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForCompany > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForCompany < 99.999 && !companyDwnImg" [progress]="loadProgressForCompany | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForCompany > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="roleDwnImg">Downloading User Roles</span>
+      <span *ngIf="loadProgressForUserRole < 99.999 && !roleDwnImg">Installing User Roles</span>
+      <span *ngIf="loadProgressForUserRole > 99.9">User Roles Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="roleDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForUserRole > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForUserRole < 99.9 && !roleDwnImg" [progress]="loadProgressForUserRole | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForUserRole > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="userDwnImg">Downloading User Roles</span>
+      <span *ngIf="loadProgressForUser < 99.999 && !userDwnImg">Installing Users</span>
+      <span *ngIf="loadProgressForUser > 99.9">Users Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="userDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForUser > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForUser < 99.9 && !userDwnImg" [progress]="loadProgressForUser | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForUser > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="currencyDwnImg">Downloading Currency</span>
+      <span *ngIf="loadProgressForCurrency < 99.999 && !currencyDwnImg">Installing Currency</span>
+      <span *ngIf="loadProgressForCurrency > 99.9">Currency Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="currencyDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForCurrency > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForCurrency < 99.9 && !currencyDwnImg" [progress]="loadProgressForCurrency | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForCurrency > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="sortDwnImg">Downloading Sort</span>
+      <span *ngIf="loadProgressForSort < 99.999 && !sortDwnImg">Installing Sort</span>
+      <span *ngIf="loadProgressForSort > 99.9">Sort Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="sortDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForSort > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForSort < 99.9 && !sortDwnImg" [progress]="loadProgressForSort | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForSort > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="inventoryDwnImg">Downloading Inventory</span>
+      <span *ngIf="loadProgressForInventory < 99.999 && !inventoryDwnImg">Installing Inventory</span>
+      <span *ngIf="loadProgressForInventory > 99.9">Inventory Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="inventoryDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForInventory > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForInventory < 99.9 && !inventoryDwnImg" [progress]="loadProgressForInventory | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForInventory > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="salesOrderDwnImg">Downloading Sales Order</span>
+      <span *ngIf="loadProgressForSalesOrder < 99.999 && !salesOrderDwnImg">Installing Sales Order</span>
+      <span *ngIf="loadProgressForSalesOrder > 99.9">Sales Order Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="salesOrderDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForSalesOrder > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForSalesOrder < 99.9 && !salesOrderDwnImg" [progress]="loadProgressForSalesOrder | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForSalesOrder > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="clientListDwnImg">Downloading Client List</span>
+      <span *ngIf="loadProgressForClientList < 99.999 && !clientListDwnImg">Installing Client List</span>
+      <span *ngIf="loadProgressForClientList > 99.9">Client List Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="clientListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForClientList > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForClientList < 99.9 && !clientListDwnImg" [progress]="loadProgressForClientList | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForClientList > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="invoicesListDwnImg">Downloading Invoice List</span>
+      <span *ngIf="loadProgressForInvoicesList < 99.999 && !invoicesListDwnImg">Installing Invoice List</span>
+      <span *ngIf="loadProgressForInvoicesList > 99.9">Invoice List Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="invoicesListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForInvoicesList > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForInvoicesList < 99.9 && !invoicesListDwnImg" [progress]="loadProgressForInvoicesList | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForInvoicesList > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="collectionsListDwnImg">Downloading Collections List</span>
+      <span *ngIf="loadProgressForCollectionsList < 99.999 && !collectionsListDwnImg">Installing Collections List</span>
+      <span *ngIf="loadProgressForCollectionsList > 99.9">Collections List Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="collectionsListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForCollectionsList > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForCollectionsList < 99.9 && !collectionsListDwnImg" [progress]="loadProgressForCollectionsList | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForCollectionsList > 99.9">
+    <ion-col size="10" class="pad0">
+      <span *ngIf="itemHistoryListDwnImg">Downloading Item History</span>
+      <span *ngIf="loadProgressForItemHistory < 99.999 && !itemHistoryListDwnImg">Installing Item History</span>
+      <span *ngIf="loadProgressForItemHistory > 99.9">Item History Installed</span>
+    </ion-col>
+    <ion-col size="2" class="success-check pad0">
+      <img *ngIf="itemHistoryListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+      <ion-icon *ngIf="loadProgressForItemHistory > 99.9" name="checkmark-circle"></ion-icon>
+    </ion-col>
+    <ion-col class="pad0">
+      <progress-bar *ngIf="loadProgressForItemHistory < 99.9 && !itemHistoryListDwnImg" [progress]="loadProgressForItemHistory | number:'2.0-0'"></progress-bar>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="loadProgressForItemHistory > 99.9">
+      <ion-col size="10" class="pad0">
+        <span *ngIf="clientSortListDwnImg">Downloading Master Sort</span>
+        <span *ngIf="loadProgressForClientSort < 99.999 && !clientSortListDwnImg">Installing Master Sort</span>
+        <span *ngIf="loadProgressForClientSort > 99.9">Master Sort Installed</span>
+      </ion-col>
+      <ion-col size="2" class="success-check pad0">
+        <img *ngIf="clientSortListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+        <ion-icon *ngIf="loadProgressForClientSort > 99.9" name="checkmark-circle"></ion-icon>
+      </ion-col>
+      <ion-col class="pad0">
+        <progress-bar *ngIf="loadProgressForClientSort < 99.9 && !clientSortListDwnImg" [progress]="loadProgressForClientSort | number:'2.0-0'"></progress-bar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="loadProgressForClientSort > 99.9">
+        <ion-col size="10" class="pad0">
+          <span *ngIf="clientBalanceListDwnImg">Downloading Client Balance</span>
+          <span *ngIf="loadProgressForClientBalance < 99.999 && !clientBalanceListDwnImg">Installing Client Balance</span>
+          <span *ngIf="loadProgressForClientBalance > 99.9">Client Balance Installed</span>
+        </ion-col>
+        <ion-col size="2" class="success-check pad0">
+          <img *ngIf="clientBalanceListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+          <ion-icon *ngIf="loadProgressForClientBalance > 99.9" name="checkmark-circle"></ion-icon>
+        </ion-col>
+        <ion-col class="pad0">
+          <progress-bar *ngIf="loadProgressForClientBalance < 99.9 && !clientBalanceListDwnImg" [progress]="loadProgressForClientBalance | number:'2.0-0'"></progress-bar>
+        </ion-col>
+      </ion-row>
+
+    <ion-row *ngIf="loadProgressForClientBalance > 99.9">
+      <ion-col size="10" class="pad0">
+        <span *ngIf="bankListDwnImg">Downloading Banks</span>
+        <span *ngIf="loadProgressForBank < 99.999 && !bankListDwnImg">Installing Banks</span>
+        <span *ngIf="loadProgressForBank > 99.9">Banks Installed</span>
+      </ion-col>
+      <ion-col size="2" class="success-check pad0">
+        <img *ngIf="bankListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+        <ion-icon *ngIf="loadProgressForBank > 99.9" name="checkmark-circle"></ion-icon>
+      </ion-col>
+      <ion-col class="pad0">
+        <progress-bar *ngIf="loadProgressForBank < 99.9 && !bankListDwnImg" [progress]="loadProgressForBank | number:'2.0-0'"></progress-bar>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngIf="loadProgressForBank > 99.9">
+      <ion-col size="10" class="pad0">
+        <span *ngIf="whareHouseListDwnImg">Downloading WhareHouse</span>
+        <span *ngIf="loadProgressForWhareHouse < 99.999 && !whareHouseListDwnImg">Installing WhareHouse</span>
+        <span *ngIf="loadProgressForWhareHouse > 99.9">WhareHouse Installed</span>
+      </ion-col>
+      <ion-col size="2" class="success-check pad0">
+        <img *ngIf="whareHouseListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+        <ion-icon *ngIf="loadProgressForWhareHouse > 99.9" name="checkmark-circle"></ion-icon>
+      </ion-col>
+      <ion-col class="pad0">
+        <progress-bar *ngIf="loadProgressForWhareHouse < 99.9 && !bankListDwnImg" [progress]="loadProgressForWhareHouse | number:'2.0-0'"></progress-bar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="loadProgressForWhareHouse > 99.9">
+      <ion-col size="10" class="pad0">
+        <span *ngIf="specialPriceListDwnImg">Downloading Special Prices</span>
+        <span *ngIf="loadProgressForSpecialPrice < 99.999 && !specialPriceListDwnImg">Installing Special Prices</span>
+        <span *ngIf="loadProgressForSpecialPrice > 99.9">Special Prices Installed</span>
+      </ion-col>
+      <ion-col size="2" class="success-check pad0">
+        <img *ngIf="specialPriceListDwnImg" src="../../assets/img/downloading.gif" class="downloading">
+        <ion-icon *ngIf="loadProgressForSpecialPrice > 99.9" name="checkmark-circle"></ion-icon>
+      </ion-col>
+      <ion-col class="pad0">
+        <progress-bar *ngIf="loadProgressForSpecialPrice < 99.9 && !specialPriceListDwnImg" [progress]="loadProgressForSpecialPrice | number:'2.0-0'"></progress-bar>
+      </ion-col>
+    </ion-row>
+</ion-content>

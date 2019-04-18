@@ -1,0 +1,78 @@
+       
+<ion-content >
+
+  <ion-grid>
+   
+   <ion-row class="heading">
+        <ion-col size="3">Voucher Type</ion-col>
+        <ion-col>Voucher #</ion-col>
+        <ion-col>Date</ion-col>
+        <ion-col>Debt</ion-col>
+        <ion-col>Credit</ion-col>
+    </ion-row>
+
+    <ion-row class="balance-content" *ngFor="let history of clients">
+      <ion-col size="3">{{history.ArVoucherType}}</ion-col>
+      <ion-col >{{history.RV_ID}}</ion-col>
+      <ion-col>{{history.RV_Date | date: 'dd/MM/yyyy'}}</ion-col>
+      <ion-col>{{history.Debit}}</ion-col>
+      <ion-col>{{history.Credit}}</ion-col>
+  </ion-row>
+
+
+  <!--
+    <ion-grid> -->
+
+            <!-- <div class="history" *ngFor="let history of clients" >
+              <ion-row class="history-date-row">
+                <ion-col size="12">
+                  {{history.Date | date: 'dd/MM/yyyy'}}
+                </ion-col>
+              </ion-row>
+              <ion-row> 
+                <ion-col size="6" class="history-invoice-no">Voucher ID : {{ history.VoucherNumber}}</ion-col>
+                <ion-col size="6" class="history-invoice-price" text-center>{{history.Balance | currency: 'NIS  '}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6" class="history-company-name">Voucher Type : {{(history.VoucherType)?history.VoucherType:'N/A'}}</ion-col>
+                <ion-col size="6" class="history-invoice-price" text-center>Transaction : {{(history.Transaction)?history.Transaction:'N/A'}}</ion-col>
+              </ion-row>
+            </div> -->
+           
+          <!-- </ion-grid>
+
+    <ion-row class="balance-content">
+        <ion-col>1-1-2018</ion-col>
+        <ion-col size="3">Open Balance</ion-col>
+        <ion-col>5569</ion-col>
+        <ion-col>Transaction</ion-col>
+        <ion-col>5000.00</ion-col>
+    </ion-row>
+
+    <ion-row class="balance-content">
+        <ion-col>09-11-2018</ion-col>
+        <ion-col size="3">Sales</ion-col>
+        <ion-col>150</ion-col>
+        <ion-col>3000</ion-col>
+        <ion-col>-8000.65</ion-col>
+    </ion-row>
+
+    <ion-row class="balance-content">
+        <ion-col>25-09-2018</ion-col>
+        <ion-col size="3">Receit</ion-col>
+        <ion-col>150</ion-col>
+        <ion-col>-3000</ion-col>
+        <ion-col>6000.00</ion-col>
+    </ion-row>
+
+    <ion-row class="icons">
+        <ion-col size="1"></ion-col>
+        <ion-col size="2" text-center><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></ion-col>
+        <ion-col size="2" text-center><ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></ion-col>
+        <ion-col size="2" text-center><ion-icon ios="ios-create" md="md-create"></ion-icon></ion-col>
+        <ion-col size="2" text-center><ion-icon ios="ios-add" md="md-add"></ion-icon></ion-col>
+        <ion-col size="2" text-center><ion-icon ios="md-more" md="md-more"></ion-icon></ion-col>
+        <ion-col size="1"></ion-col>
+    </ion-row> -->
+</ion-grid>
+</ion-content>

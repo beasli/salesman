@@ -1,0 +1,32 @@
+h1.heading {
+    margin-bottom: 2px;
+    font-size: 15px;
+    color: #222;
+}
+span.content {
+    color: #808080;
+}
+.client-desc-row {
+    border-bottom: 1px solid #00afc5;
+    margin-bottom: 5px;
+    //box-shadow: 0 1px 1px #d0d0d0;
+}
+.phone-span{
+    width: 90%;
+    float:left;
+}
+.phone-icon .icon {
+    font-size: 35px;
+    position: absolute;
+    top: 7px;
+    margin: 0;
+    font-weight: normal;
+    color: #b3b3b3;
+}
+
+.ion-padding, [padding] {
+     --padding-start: var(--ion-padding, 0); 
+     --padding-end: var(--ion-padding, 0); 
+     --padding-top: var(--ion-padding, 0); 
+     --padding-bottom: var(--ion-padding, 0); 
+}

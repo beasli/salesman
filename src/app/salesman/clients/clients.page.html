@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button *ngIf="type === 'view'"></ion-menu-button> -->
+      <div *ngIf="type === 'view';then content else other_content"></div>    
+      <ng-template #content>
+        <ion-menu-button></ion-menu-button>
+      </ng-template>
+      <ng-template #other_content>
+        <ion-back-button></ion-back-button>
+      </ng-template>
+      <!-- <ion-back-button *ngIf="type === 'add'"></ion-back-button>
+      <ion-back-button *ngIf="type === 'add-clns'"></ion-back-button> -->
+    </ion-buttons>
+    <ion-title *ngIf="!search">
+      {{(type !== 'view') ? 'Select Client' : 'Client List'}}
+    </ion-title>
+    <ion-searchbar *ngIf="search" (ionChange)="searchItem($event)">
+    </ion-searchbar>
+    <ion-buttons slot="end" (click)="toggleSearchBar()" class="padding-8">
+      <ion-icon *ngIf="!search" name="search"></ion-icon>
+      <ion-icon *ngIf="search" name="close"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-grid class="heading">
+
+    <ion-row *ngIf="type === 'view'">
+      <ion-col size="1" class="balance-heading">
+        <h6 style="margin:0px;">#</h6>
+      </ion-col>
+      <ion-col size="7" class="balance-heading">
+        <h6 style="margin:0px;">Client Name</h6>
+      </ion-col>
+      <ion-col size="4" text-right class="balance-heading">
+        <h6 style="margin:0px;">Balance</h6>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="type === 'add' || type === 'add-clns'">
+      <ion-col size="6" class="balance-heading">
+        <h6 style="margin:0px;">Client Name</h6>
+      </ion-col>
+      <ion-col size="6" text-right class="balance-heading">
+        <h6 style="margin:0px;">Add</h6>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="type === 'view'">
+    <ion-row class="client-row" *ngFor="let client of clients; let i = index" (click)="openClientDetail(client)">
+      <ion-col size="1" class="sr-no">
+        {{i+1}}
+      </ion-col>
+      <ion-col size="7">
+        <div class="company-name">
+          <span class="company-heading">{{client.ArName}}</span>
+          <span class="company-phone">Phone: {{((client.PhoneNumber) ? client.PhoneNumber + ', ' : 'N/A, ') + ' Address: ' + ((client.Address) ? client.Address : 'N/A')}}</span>
+        </div>
+      </ion-col>
+      <ion-col size="4" text-right class="balance">{{client.CurrencyName + ' ' + client.TotalBalance }}</ion-col>
+    </ion-row>
+     <!-- fab placed to the bottom end -->
+  </ion-grid>
+  
+  <ion-fab *ngIf="type === 'view'" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createClient()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-grid *ngIf="type === 'add'">
+    <ion-row class="client-row" *ngFor="let client of clients">
+      <ion-col size="10" text-left (click)="openClientDetail(client)">
+        <div class="company-name">
+          <span class="company-heading">{{client.ArName}}</span>
+          <span class="company-phone">{{client.PhoneNumber}}</span>
+        </div>
+      </ion-col>
+      <!-- <ion-col size="4" text-right class="balance">{{client.TotalBalance }}</ion-col> -->
+      <ion-col size="2" text-center class="balance">
+        <ion-button (click)="addClientToSalesOrder(client)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="type === 'add-clns'">
+      <ion-row class="client-row" *ngFor="let client of clients">
+        <ion-col size="10" (click)="openClientDetail(client)">
+          <div class="company-name">
+            <span class="company-heading">{{client.ArName}}</span>
+            <span class="company-phone">{{client.PhoneNumber}}</span>
+          </div>
+        </ion-col>
+        <!-- <ion-col size="4" text-right class="balance">{{client.TotalBalance }}</ion-col> -->
+        <ion-col size="2" text-center class="balance">
+          <ion-button (click)="addClientToCollection(client)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

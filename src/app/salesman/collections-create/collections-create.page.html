@@ -1,0 +1,56 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Client</ion-label>
+                    <ion-input [(ngModel)]="client.ArName"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="primary">Entry By</ion-label>
+                    <ion-input [(ngModel)]="header.EntryBy"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Amount</ion-label>
+                    <ion-input [(ngModel)]="header.RV_Amount"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Equal Amount</ion-label>
+                    <ion-input [(ngModel)]="header.RV_Equal_Amount"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Rate</ion-label>
+                    <ion-input [(ngModel)]="header.TheRate"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Note</ion-label>
+                    <ion-input [(ngModel)]="header.Note"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">IntervalID</ion-label>
+                    <ion-input [(ngModel)]="header.IntervalID"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label color="primary" position="stacked">Currency</ion-label>
+                    <ion-select [(ngModel)]="header.CurrencyID" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option *ngFor="let curr of Currency" [value]="curr.Id">{{curr.EnName}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

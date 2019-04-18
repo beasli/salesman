@@ -1,0 +1,73 @@
+.alphabetically{
+    border-bottom: 2px solid #00afc5;
+    color:#00afc5;
+}
+.company-heading, .balance{
+    font-weight: bold;
+    font-size:12px;
+
+}
+.client-row{
+    margin-bottom: 10px;
+    border-bottom: 2px solid #31afc7;
+    padding: 10px;
+}
+.company-heading, .company-phone, .company-name{
+    width:100%;
+    float:left;
+}
+.balance-heading{
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.balance-heading h6{
+    color: #00afc5;
+    font-size:16px;
+   // text-transform:uppercase;
+}
+.company-name{
+    margin-bottom:8px;
+}
+.company-name:last-child{
+    margin-bottom:0px!important;
+}
+.client-cart-icon{
+    font-size:23px;
+    float:right;
+}
+ion-row.clients-add ion-icon {
+    position: fixed;
+    right: 25px;
+    font-size: 50px;
+    bottom: 45px;
+    color: #00afc5;
+}
+ion-grid {
+    font-size: 12px;
+}
+
+.heading {
+    font-size: 12px;
+    font-weight: bold;
+    color: #31afc7;
+    background: #fff;
+    border-bottom: 2px solid #31afc7;
+    
+}
+
+.header {
+    background: #31afc7;
+}
+
+.padding-8{
+    padding: 10px;
+    font-size: 20px;
+}
+
+span.company-phone {
+    font-size: 10px;
+}
+
+.sr-no {
+    font-size: 10px;
+}

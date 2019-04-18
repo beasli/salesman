@@ -1,0 +1,14 @@
+
+<ion-content >
+    <ion-grid>
+        <ion-row  class="client-row" *ngFor="let client of clients" (click)="viewDetail(client.VoucherID)">
+          <ion-col  size="8" >
+            <div class="company-name">
+              <span class="company-heading">Voucher ID #{{client.VoucherID}}</span>
+              <span class="company-phone">Date {{client.Date | date:'dd/MM/yyyy'}}</span>
+            </div>
+          </ion-col>
+          <ion-col size="4" text-right class="balance">NIS {{client.Balance }}</ion-col>
+        </ion-row>
+      </ion-grid> 
+</ion-content>

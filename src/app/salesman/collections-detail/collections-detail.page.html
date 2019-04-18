@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Collection Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <!-- <ion-grid>
+      <ion-row>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="primary">RV ID</ion-label>
+                  <ion-input readonly="true">{{header.RV_ID}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="primary">Date</ion-label>
+                  <ion-input readonly="true">{{header.RV_Date}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label  position="stacked" color="primary" >Entry By</ion-label>
+                  <ion-input readonly="true">{{header.EntryBy}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Employee ID</ion-label>
+                  <ion-input readonly="true" >{{header.EmployeeID}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Created On</ion-label>
+                  <ion-input readonly="true" >{{header.CreatedOn | date: 'dd/MM/yyyy'}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">SupervisorId</ion-label>
+                  <ion-input readonly="true" >{{header.SupervisorId}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Amount</ion-label>
+                  <ion-input readonly="true" >{{header.RV_Amount}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Equal Amount</ion-label>
+                  <ion-input readonly="true" >{{header.RV_Equal_Amount}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Rate</ion-label>
+                  <ion-input readonly="true" >{{header.TheRate}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Note</ion-label>
+                  <ion-input readonly="true" >{{header.Note}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">IntervalID</ion-label>
+                  <ion-input readonly="true" >{{header.IntervalID}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">ClientID</ion-label>
+                  <ion-input readonly="true" >{{header.ClientID}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">PostDate</ion-label>
+                  <ion-input readonly="true" >{{header.PostDate | date: 'dd/MM/yyyy'}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">CurrencyID</ion-label>
+                  <ion-input readonly="true" >{{header.CurrencyID}}</ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Cash</ion-label>
+                  <span *ngFor="let Cash of header.Cash">
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Id</ion-label>
+                          <ion-input readonly="true" >{{Cash.Id}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">AccID</ion-label>
+                          <ion-input readonly="true" >{{Cash.AccID}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">CurrencyID</ion-label>
+                          <ion-input readonly="true" >{{Cash.CurrencyID}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Equal Debit</ion-label>
+                          <ion-input readonly="true" >{{Cash.Equal_Debit}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Debit</ion-label>
+                          <ion-input readonly="true" >{{Cash.Debit}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Rate</ion-label>
+                          <ion-input readonly="true" >{{Cash.TheRate}}</ion-input>
+                      </ion-item>
+                  </span>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label color="primary" position="stacked">Cheque</ion-label>
+                  <span *ngFor="let Cheque of header.Cheque">
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Id</ion-label>
+                          <ion-input readonly="true" >{{Cheque.Id}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">AccID</ion-label>
+                          <ion-input readonly="true" >{{Cheque.AccID}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">CurrencyID</ion-label>
+                          <ion-input readonly="true" >{{Cheque.CurrencyID}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Equal Debit</ion-label>
+                          <ion-input readonly="true" >{{Cheque.Equal_Debit}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Debit</ion-label>
+                          <ion-input readonly="true" >{{Cheque.Debit}}</ion-input>
+                      </ion-item>
+                      <ion-item >
+                          <ion-label color="primary" position="stacked">Rate</ion-label>
+                          <ion-input readonly="true" >{{Cheque.TheRate}}</ion-input>
+                      </ion-item>
+                  </span>
+              </ion-item>
+          </ion-col>
+         
+      </ion-row>
+
+  </ion-grid> -->
+
+  <ion-tabs>
+    <ion-tab-bar slot="top" color="primary">
+
+      <ion-tab-button tab="collections-detail-header">
+        <ion-label>Header</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="collections-detail-check">
+        <ion-label>Check</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="collections-detail-cash">
+        <ion-label>Cash</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
